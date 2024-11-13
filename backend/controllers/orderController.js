@@ -16,7 +16,7 @@ const placeOrder = async (req, res) => {
             userId: req.body.userId,
             items: req.body.items,
             amount: req.body.amount,
-            address: req.body.address,
+         
         })
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
@@ -51,10 +51,15 @@ const placeOrder = async (req, res) => {
         });
 
         res.json({ success: true, session_url: session.url });
+        console.log(res,"res ordercontroller");
+        
+        console.log(session,"session");
+        
 
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" })
+
     }
 }
 

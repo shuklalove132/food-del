@@ -12,10 +12,18 @@ const Order = () => {
     const response = await axios.get(`${url}/api/order/list`)
     if (response.data.success) {
       setOrders(response.data.data.reverse());
+      console.log(orders,"orders");
+      
+      console.log(response.data.data.reverse(),"if success");
+      
     }
     else {
       toast.error("Error")
+      console.log(response,"if error");
+      
     }
+    console.log(response,"res");
+    
   }
 
   const statusHandler = async (event, orderId) => {
@@ -24,9 +32,11 @@ const Order = () => {
       orderId,
       status: event.target.value
     })
+    console.log(response,"admin orders response");
     if (response.data.success) {
       await fetchAllOrders();
     }
+    console.log(orders,"orders");
   }
 
 
@@ -52,12 +62,15 @@ const Order = () => {
                   }
                 })}
               </p>
-              <p className='order-item-name'>{order.address.firstName + " " + order.address.lastName}</p>
+              <p className='order-item-name'>{order.address.fullName}</p>
               <div className='order-item-address'>
-                <p>{order.address.street + ","}</p>
-                <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
+             
+              <p className='order-item-name'>{order.address.carNo}</p>
+              <p className='order-item-name'>{order.address.phone}</p>
+
+             
               </div>
-              <p className='order-item-phone'>{order.address.phone}</p>
+              <p className='order-item-phone'>{order.fullName}</p>
             </div>
             <p>Items : {order.items.length}</p>
             <p>{currency}{order.amount}</p>

@@ -88,43 +88,29 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
-        menu_image: menu_1
+        menu_name: "Pizza",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuPizza.jfif?alt=media&token=835d291e-35c0-4674-b1ce-24efcf134e32"
     },
     {
-        menu_name: "Rolls",
-        menu_image: menu_2
+        menu_name: "Breads",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuBread.jfif?alt=media&token=a2a44778-5526-4e3b-82a6-7c4a75655919"
     },
     {
-        menu_name: "Deserts",
-        menu_image: menu_3
+        menu_name: "Drinks",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuBread.jfif?alt=media&token=a2a44778-5526-4e3b-82a6-7c4a75655919"
     },
     {
-        menu_name: "Sandwich",
-        menu_image: menu_4
+        menu_name: "Desserts",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuDesserts.jfif?alt=media&token=06816678-d6f5-447c-b79a-2ecc9ffd3054"
     },
-    {
-        menu_name: "Cake",
-        menu_image: menu_5
-    },
-    {
-        menu_name: "Pure Veg",
-        menu_image: menu_6
-    },
-    {
-        menu_name: "Pasta",
-        menu_image: menu_7
-    },
-    {
-        menu_name: "Noodles",
-        menu_image: menu_8
-    }]
+  
+    ]
 
 export const food_list = [
     {
         _id: "1",
         name: "Greek salad",
-        image: food_1,
+        image: "http://localhost:4000/images/https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/food-images%2F1731141765527_food_3.png?alt=media&token=cbd5bc3d-4a08-42f1-b27f-466aec9835a5",
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Salad"
