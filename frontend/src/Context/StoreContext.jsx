@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
     const currency = "₹";
-    const deliveryCharge = 50;
+    const deliveryCharge = 0;
 
     // Add to Cart Function
     const addToCart = async (itemId) => {
