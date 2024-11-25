@@ -61,8 +61,8 @@ const StoreContextProvider = (props) => {
 
     // Fetch Food List
     const fetchFoodList = async () => {
-        console.log("Fetching food list from:", url + "/api/food/list");
-        const response = await axios.get(url + "/api/food/list");
+        console.log("Fetching food list from:", "https://ilcibo-backend.onrender.com/api/food/list");
+        const response = await axios.get("https://ilcibo-backend.onrender.com/api/food/list");
         console.log("Food list fetched:", response.data.data);
         setFoodList(response.data.data);
     };
