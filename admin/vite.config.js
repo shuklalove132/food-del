@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: { port: 5174 },
   rollupOptions: {
-    external: ['firebase/storage'],
+    external: ['firebase/app', 'firebase/storage'],
   },
 })
