@@ -3,12 +3,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fefbec;
 }
 
 .navbar .logo {
     width: 150px;
 }
-
+.navbarsticky{
+   
+  }
 .navbar-menu {
     display: flex;
     list-style: none;

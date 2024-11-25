@@ -16,7 +16,7 @@ const placeOrder = async (req, res) => {
             userId: req.body.userId,
             items: req.body.items,
             amount: req.body.amount,
-         
+         address:req.body.address
         })
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
@@ -74,6 +74,8 @@ const placeOrderCod = async (req, res) => {
             address: req.body.address,
             payment: true,
         })
+        console.log(newOrder,"newOrder Backend");
+        
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
@@ -90,6 +92,9 @@ const listOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({});
         res.json({ success: true, data: orders })
+        console.log(res,"orders response in order controller");
+        
+       
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" })

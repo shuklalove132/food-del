@@ -3,40 +3,38 @@ import FoodItem from '../FoodItem/FoodItem';
 import { StoreContext } from '../../Context/StoreContext';
 import './FoodDisplay.css';
 
-const FoodDisplay = () => {
-    const { food_list, url, currency, cartItems } = useContext(StoreContext);
+const FoodDisplay = ({ category }) => {
+    const { food_list } = useContext(StoreContext);
 
-    // Log context data to check if data is received correctly
-    console.log("FoodDisplay component rendered");
-    console.log("Food list in FoodDisplay:", food_list);
-    console.log("URL in FoodDisplay:", url);
-    console.log("Currency in FoodDisplay:", currency);
-    console.log("Cart items in FoodDisplay:", cartItems);
+    // Filter food items based on the selected category
+    const filteredFoodList = category === "All" 
+        ? food_list 
+        : food_list.filter(item => item.category?.toLowerCase() === category.toLowerCase());
 
     useEffect(() => {
-        console.log("FoodDisplay useEffect called to check data load");
-
-        if (food_list.length === 0) {
-            console.warn("Warning: food_list is empty in FoodDisplay");
-        }
-    }, [food_list]);
+        console.log("Current category in FoodDisplay:", category);
+        console.log("All categories in food_list:", food_list.map(item => item.category));
+        console.log("Filtered food list:", filteredFoodList);
+    }, [category, filteredFoodList]);
 
     return (
         <div className="food-display">
-            {food_list.length > 0 ? (
-                food_list.map((item) => (
-                    <FoodItem
-                        key={item._id}
-                        id={item._id}
-                        image={item.image}
-                        name={item.name}
-                        price={item.price}
-                        description={item.description}
-                    />
-                ))
-            ) : (
-                <p>No food items available.</p>
-            )}
+            <div className="food-display-list">
+                {filteredFoodList.length > 0 ? (
+                    filteredFoodList.map((item) => (
+                        <FoodItem
+                            key={item._id}
+                            id={item._id}
+                            image={item.image}
+                            name={item.name}
+                            price={item.price}
+                            description={item.description}
+                        />
+                    ))
+                ) : (
+                    <p>No food items available.</p>
+                )}
+            </div>
         </div>
     );
 };

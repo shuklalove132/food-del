@@ -8,6 +8,9 @@
     padding: 20px 8vw;
     padding-top: 80px;
 }
+.footerImg{
+    width:400px ;
+}
 .footer-content{
     width: 100%;
     display: grid;
@@ -50,5 +53,8 @@
     }
     .footer-copyright{
         text-align: center;
+    }
+    .footerImg{
+        width:300px;
     }
 }
