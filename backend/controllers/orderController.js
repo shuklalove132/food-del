@@ -51,6 +51,10 @@ const placeOrder = async (req, res) => {
         });
 
         res.json({ success: true, session_url: session.url });
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          next();
         console.log(res,"res ordercontroller");
         
         console.log(session,"session");
@@ -80,6 +84,10 @@ const placeOrderCod = async (req, res) => {
         await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
         res.json({ success: true, message: "Order Placed" });
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          next();
 
     } catch (error) {
         console.log(error);
@@ -92,6 +100,10 @@ const listOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({});
         res.json({ success: true, data: orders })
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          next();
         console.log(res,"orders response in order controller");
         
        
@@ -106,6 +118,10 @@ const userOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({ userId: req.body.userId });
         res.json({ success: true, data: orders })
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          next();
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: "Error" })
@@ -117,6 +133,10 @@ const updateStatus = async (req, res) => {
     try {
         await orderModel.findByIdAndUpdate(req.body.orderId, { status: req.body.status });
         res.json({ success: true, message: "Status Updated" })
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+          next();
     } catch (error) {
         res.json({ success: false, message: "Error" })
     }
@@ -129,10 +149,18 @@ const verifyOrder = async (req, res) => {
         if (success === "true") {
             await orderModel.findByIdAndUpdate(orderId, { payment: true });
             res.json({ success: true, message: "Paid" })
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+              next();
         }
         else {
             await orderModel.findByIdAndDelete(orderId)
             res.json({ success: false, message: "Not Paid" })
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,  Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+              next();
         }
     } catch (error) {
         res.json({ success: false, message: "Not  Verified" })
