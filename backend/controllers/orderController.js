@@ -5,7 +5,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //config variables
 const currency = "inr";
-const deliveryCharge = 50;
+const deliveryCharge = 0;
 const frontend_URL = 'https://ilcibo-pizzeria.onrender.com/';
 
 // Placing User Order for Frontend using stripe
