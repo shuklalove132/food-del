@@ -10,11 +10,11 @@ import orderRouter from "./routes/orderRoute.js"
 // app config
 const app = express()
 const port = process.env.PORT || 4000;
-const corsOptions = {
-  origin: 'https://ilcibo-admin.onrender.com',
+app.use(cors({
+  origin: ['https://ilcibo-admin.onrender.com', 'https://ilcibo-pizzeria.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // if cookies or credentials are needed
-};
+  credentials: true,
+}));
 
 // middlewares
 app.use(express.json())
