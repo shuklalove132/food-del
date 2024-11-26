@@ -10,15 +10,15 @@ import orderRouter from "./routes/orderRoute.js"
 // app config
 const app = express()
 const port = process.env.PORT || 4000;
+
+// middlewares
+app.use(express.json())
 app.use(cors({
   origin: ['https://ilcibo-admin.onrender.com', 'https://ilcibo-pizzeria.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 
-// middlewares
-app.use(express.json())
-app.use(cors(corsOptions))
 
 // db connection
 connectDB()
