@@ -3,8 +3,8 @@ import './Add.css';
 import { assets, url } from '../../assets/assets';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-// import { storage } from '../../../../firebase'; // Import Firebase storage configuration
-// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from '../../../../firebase'; // Import Firebase storage configuration
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const Add = () => {
     const [image, setImage] = useState(null);
@@ -16,58 +16,58 @@ const Add = () => {
     });
     const [isUploading, setIsUploading] = useState(false);
 
-    // const onSubmitHandler = async (event) => {
-    //     event.preventDefault();
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();
 
-    //     if (!image) {
-    //         toast.error('Image not selected');
-    //         return;
-    //     }
+        if (!image) {
+            toast.error('Image not selected');
+            return;
+        }
 
-    //     setIsUploading(true);
+        setIsUploading(true);
 
-    //     // Firebase Storage logic
-    //     // const storageRef = ref(storage, `food-images/${Date.now()}_${image.name}`);
-    //     // const uploadTask = uploadBytesResumable(storageRef, image);
+        // Firebase Storage logic
+        const storageRef = ref(storage, `food-images/${Date.now()}_${image.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, image);
 
-    //     uploadTask.on(
-    //         "state_changed",
-    //         () => {},
-    //         (error) => {
-    //             toast.error("Image upload failed");
-    //             setIsUploading(false);
-    //         },
-    //         async () => {
-    //             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        uploadTask.on(
+            "state_changed",
+            () => {},
+            (error) => {
+                toast.error("Image upload failed");
+                setIsUploading(false);
+            },
+            async () => {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
                 
-    //             const formData = {
-    //                 ...data,
-    //                 price: Number(data.price),
-    //                 image: downloadURL, // use Firebase image URL
-    //             };
+                const formData = {
+                    ...data,
+                    price: Number(data.price),
+                    image: downloadURL, // use Firebase image URL
+                };
 
-    //             try {
-    //                 const response = await axios.post(`${url}/api/food/add`, formData);
-    //                 if (response.data.success) {
-    //                     toast.success(response.data.message);
-    //                     setData({
-    //                         name: "",
-    //                         description: "",
-    //                         price: "",
-    //                         category: data.category
-    //                     });
-    //                     setImage(null);
-    //                 } else {
-    //                     toast.error(response.data.message);
-    //                 }
-    //             } catch (error) {
-    //                 toast.error("Error adding food item");
-    //             }
+                try {
+                    const response = await axios.post(`${url}/api/food/add`, formData);
+                    if (response.data.success) {
+                        toast.success(response.data.message);
+                        setData({
+                            name: "",
+                            description: "",
+                            price: "",
+                            category: data.category
+                        });
+                        setImage(null);
+                    } else {
+                        toast.error(response.data.message);
+                    }
+                } catch (error) {
+                    toast.error("Error adding food item");
+                }
 
-    //             setIsUploading(false);
-    //         }
-    //     );
-    // };
+                setIsUploading(false);
+            }
+        );
+    };
 
     const onChangeHandler = (event) => {
         const name = event.target.name;
@@ -101,6 +101,8 @@ const Add = () => {
                             <option value="Breads">Breads</option>
                             <option value="Drinks">Drinks</option>
                             <option value="Desserts">Desserts</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Soups">Soups</option>
 
                             <option value="Add-Ons">Add-Ons</option>
                             
