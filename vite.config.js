@@ -15,6 +15,7 @@ export default defineConfig({
       'firebase/compat/app',
       'firebase/compat/auth',
       'firebase/compat/firestore',
+      'firebase/compat/storage',
     ],
   },
   build: {
