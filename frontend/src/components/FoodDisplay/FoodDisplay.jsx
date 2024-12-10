@@ -1,10 +1,25 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FoodItem from '../FoodItem/FoodItem';
 import { StoreContext } from '../../Context/StoreContext';
 import './FoodDisplay.css';
+import axios from 'axios';
 
 const FoodDisplay = ({ category }) => {
-    const { food_list } = useContext(StoreContext);
+  const [food_list, setFoodList] = useState([]);
+
+
+    useEffect(() => {
+        // Fetch food_list from the backend
+        axios.get("https://ilcibo-backend.onrender.com/api/food/list")
+          .then((response) => {
+            setFoodList(response.data.data);
+          })
+          .catch((error) => {
+            console.error("There was an error fetching the list!", error);
+          });
+      }, []);
+    
+
 
     // Filter food items based on the selected category
     const filteredFoodList = category === "All" 
