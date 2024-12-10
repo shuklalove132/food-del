@@ -20,7 +20,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['firebase/compat/app'],
+      external: ['firebase/compat/app','firebase/compat/storage'],
     },
   },
 });
