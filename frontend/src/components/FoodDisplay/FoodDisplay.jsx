@@ -35,9 +35,9 @@ const FoodDisplay = ({ category }) => {
     : food_list.filter(item => item.category?.toLowerCase() === category.toLowerCase());
 
   useEffect(() => {
-    console.log("Current category in FoodDisplay:", category);
-    console.log("All categories in food_list:", food_list.map(item => item.category));
-    console.log("Filtered food list:", filteredFoodList);
+    // console.log("Current category in FoodDisplay:", category);
+    // console.log("All categories in food_list:", food_list.map(item => item.category));
+    // console.log("Filtered food list:", filteredFoodList);
   }, [category, filteredFoodList]);
 
   return (
