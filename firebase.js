@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import firebase from 'firebase/compat/app';
-import "firebase/compat/storage";
+import {initializeApp} from 'firebase/app';
+import {getStorage} from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,8 +18,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+export const app =initializeApp(firebaseConfig)
 
 
 // Initialize Cloud Storage and get a reference to the service
-export const storage = firebase.storage();
+export const storage = getStorage(app);
