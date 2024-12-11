@@ -62,9 +62,17 @@ const StoreContextProvider = (props) => {
     // Fetch Food List
     const fetchFoodList = async () => {
         console.log("Fetching food list from:", "https://ilcibo-backend.onrender.com/api/food/list");
-        const response = await axios.get("https://ilcibo-backend.onrender.com/api/food/list");
-        console.log("Food list fetched:", response.data.data);
-        setFoodList(response.data.data);
+        console.time("fetchFoodList");
+        try {
+            const response = await axios.get("https://ilcibo-backend.onrender.com/api/food/list");
+            console.log("Food list fetched successfully.");
+            console.log("Food list data:", response.data.data);
+            setFoodList(response.data.data);
+        } catch (error) {
+            console.error("Error fetching food list:", error);
+        } finally {
+            console.timeEnd("fetchFoodList");
+        }
     };
 
     // Load Cart Data

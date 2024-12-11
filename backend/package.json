@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon api/server.js"
+    "server": "nodemon api/server.js",
+    "vercel-build":"echo hello"
   },
   "author": "",
   "license": "ISC",
