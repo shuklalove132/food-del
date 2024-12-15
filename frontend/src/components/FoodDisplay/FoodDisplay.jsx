@@ -10,15 +10,15 @@ const FoodDisplay = ({ category }) => {
 
     useEffect(() => {
         // Fetch food_list from the backend
-        setLoading(true); 
+        setIsLoading(true); 
         axios.get("https://ilcibo-backend.onrender.com/api/food/list")
           .then((response) => {
             setFoodList(response.data.data);
-            setLoading(false); // Stop loading
+            setIsLoading(false); // Stop loading
           })
           .catch((error) => {
             console.error("There was an error fetching the list!", error);
-            setLoading(false); // Stop loading
+            setIsLoading(false); // Stop loading
           });
       }, []);
     
@@ -37,23 +37,23 @@ const FoodDisplay = ({ category }) => {
 
     return (
         <div className="food-display">
-            <div className="food-display-list">
-                {filteredFoodList.length > 0 ? (
-                    filteredFoodList.map((item) => (
-                        <FoodItem
-                            key={item._id}
-                            id={item._id}
-                            image={item.image}
-                            name={item.name}
-                            price={item.price}
-                            description={item.description}
-                        />
-                    ))
-                ) : (
-                    <p>No food items available.</p>
-                )}
-            </div>
+        <div className="food-display-list">
+          {isLoading ? (
+            <Spinner /> // Display spinner while loading
+          ) : (
+            filteredFoodList.map((item) => (
+              <FoodItem
+                key={item._id}
+                id={item._id}
+                image={item.image}
+                name={item.name}
+                price={item.price}
+                description={item.description}
+              />
+            ))
+          )}
         </div>
+      </div>
     );
 };
 
