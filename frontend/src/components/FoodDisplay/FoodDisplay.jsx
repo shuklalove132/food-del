@@ -47,10 +47,10 @@ const FoodDisplay = ({ category }) => {
                         />
                     ))
                 ) : (
-                    <p>No food items available.</p>
+                    <p>Loading...</p>
                 )}
             </div>
-        </div>
+        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     );
 };
 
