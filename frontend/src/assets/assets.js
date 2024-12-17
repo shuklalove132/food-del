@@ -103,11 +103,19 @@ export const menu_list = [
     },
     {
         menu_name: "Drinks",
-        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuBread.jfif?alt=media&token=a2a44778-5526-4e3b-82a6-7c4a75655919"
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2Fdrinks.jpg?alt=media&token=2e721263-28ca-4c60-b893-124382f8f1e1"
     },
     {
         menu_name: "Desserts",
         menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FexploreMenuDesserts.jfif?alt=media&token=06816678-d6f5-447c-b79a-2ecc9ffd3054"
+    },
+    {
+        menu_name: "Soups",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FtomatobasilSoup.jpg?alt=media&token=4a27ece6-744d-4265-9fca-1be8e54563b3"
+    },
+    {
+        menu_name: "Snacks",
+        menu_image: "https://firebasestorage.googleapis.com/v0/b/food-del-9a058.firebasestorage.app/o/explore-menu%2FchickenLollipop.jpg?alt=media&token=fe3fa25e-5897-42b6-bf5d-8bb02d2aa4ce"
     },
   
     ]
