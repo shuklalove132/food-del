@@ -1,5 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { menu_list } from "../assets/assets";
+import { food_list as staticFoodList, menu_list } from "../assets/assets";
+
+// console.log(staticFoodList,"list");
+
+
 import axios from "axios";
 
 export const StoreContext = createContext(null);
@@ -7,7 +11,11 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const url = "https://ilcibo-backend.onrender.com";
-    const [food_list, setFoodList] = useState([]);
+    const [food_list, setFoodList] = useState(staticFoodList);
+    console.log(food_list,"after state set");
+    
+  
+
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
     const currency = "₹";
@@ -47,6 +55,8 @@ const StoreContextProvider = (props) => {
         for (const item in cartItems) {
             try {
                 if (cartItems[item] > 0) {
+                    console.log(food_list,"in getTotalCartAmount");
+                    
                     let itemInfo = food_list.find((product) => product._id === item);
                     // console.log("Item found in food list:", itemInfo);
                     totalAmount += itemInfo.price * cartItems[item];
@@ -86,27 +96,27 @@ const StoreContextProvider = (props) => {
     };
 
     // Initial Load with Caching
-    useEffect(() => {
-        async function loadData() {
-            console.log("Initial data load started.");
-            const cachedFoodList = localStorage.getItem("cachedFoodList");
-            if (cachedFoodList) {
-                console.log("Using cached food list.");
-                setFoodList(JSON.parse(cachedFoodList));
-            } else {
-                await fetchFoodList();
-                localStorage.setItem("cachedFoodList", JSON.stringify(food_list));
-            }
+    // useEffect(() => {
+    //     async function loadData() {
+    //         console.log("Initial data load started.");
+    //         const cachedFoodList = localStorage.getItem("cachedFoodList");
+    //         if (cachedFoodList) {
+    //             console.log("Using cached food list.");
+    //             setFoodList(JSON.parse(cachedFoodList));
+    //         } else {
+    //             await fetchFoodList();
+    //             localStorage.setItem("cachedFoodList", JSON.stringify(food_list));
+    //         }
 
-            const storedToken = localStorage.getItem("token");
-            if (storedToken) {
-                // console.log("Token found in localStorage:", storedToken);
-                setToken(storedToken);
-                await loadCartData({ token: storedToken });
-            }
-        }
-        loadData();
-    }, []);
+    //         const storedToken = localStorage.getItem("token");
+    //         if (storedToken) {
+    //             // console.log("Token found in localStorage:", storedToken);
+    //             setToken(storedToken);
+    //             await loadCartData({ token: storedToken });
+    //         }
+    //     }
+    //     loadData();
+    // }, []);
 
     // Context Value
     const contextValue = {

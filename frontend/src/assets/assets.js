@@ -10,6 +10,7 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+
 import food_1 from '/images/marinara.png'
 import food_2 from '/images/margherita.jpg'
 import food_3 from '/images/funghi.jfif'
@@ -120,7 +121,7 @@ export const menu_list = [
   
     ]
 
-    export const food_list = [
+export const food_list = [
         {
             _id: "6730162a29cdb9ed538a6b65",
             name: "Marinara",
@@ -293,57 +294,57 @@ export const menu_list = [
             description: "Spicy, flavorful bread topped with tender chicken.",
             category: "Breads"
         },
-        {
-            _id: "6730238829cdb9ed538a6b96",
-            name: "Pesto Chick Bread",
-            image: food_25,
-            price: 350,
-            description: "Garlic bread topped with tender chicken and fragrant pesto.",
-            category: "Breads"
-        },
-        {
-            _id: "673023f329cdb9ed538a6b98",
-            name: "Pepperoni Bread",
-            image: food_26,
-            price: 350,
-            description: "Garlic bread topped with savory pepperoni and melted cheese.",
-            category: "Breads"
-        }, {
-            _id: "674462ab28624121d49b6bf7",
-            name: "BBQ Chicken",
-            image: food_27,
-            price: 500,
-            description: "San marzano BBQ sauce, Buffalo mozzarella cheese",
-            category: "pizza"
-        }, {
-            _id: "674b0f541e469fe939c6e31e",
-            name: "Pesto and Sun dried tomatoes",
-            image: food_28,
-            price: 500,
-            description: "San marzano BBQ sauce, Buffalo mozzarella cheese",
-            category: "pizza"
-        }, {
-            _id: "6759834aa77fec1e469c687c",
-            name: "Chicken Nuggets",
-            image: food_29,
-            price: 250,
-            description: "Golden, crispy, and tender—these chicken nuggets are pure perfection in every bite!",
-            category: "Snacks"
-        }, {
-            _id: "6759837ea77fec1e469c687e",
-            name: "Chicken Lollipop",
-            image: food_30,
-            price: 250,
-            description: "Crispy, juicy, and full of flavor, chicken lollipops are a delightful bite-sized treat!",
-            category: "Snacks"
-        }, {
-            _id: "675983c2a77fec1e469c6880",
-            name: "Tomato Basil Soup",
-            image: food_31,
-            price: 150,
-            description: "Rich, creamy, and bursting with fresh flavors, tomato basil soup is a comforting bowl of warmth!",
-            category: "Soups"
-        }, 
+        // {
+        //     _id: "6730238829cdb9ed538a6b96",
+        //     name: "Pesto Chick Bread",
+        //     image: food_25,
+        //     price: 350,
+        //     description: "Garlic bread topped with tender chicken and fragrant pesto.",
+        //     category: "Breads"
+        // },
+        // {
+        //     _id: "673023f329cdb9ed538a6b98",
+        //     name: "Pepperoni Bread",
+        //     image: food_26,
+        //     price: 350,
+        //     description: "Garlic bread topped with savory pepperoni and melted cheese.",
+        //     category: "Breads"
+        // }, {
+        //     _id: "674462ab28624121d49b6bf7",
+        //     name: "BBQ Chicken",
+        //     image: food_27,
+        //     price: 500,
+        //     description: "San marzano BBQ sauce, Buffalo mozzarella cheese",
+        //     category: "pizza"
+        // }, {
+        //     _id: "674b0f541e469fe939c6e31e",
+        //     name: "Pesto and Sun dried tomatoes",
+        //     image: food_28,
+        //     price: 500,
+        //     description: "San marzano BBQ sauce, Buffalo mozzarella cheese",
+        //     category: "pizza"
+        // }, {
+        //     _id: "6759834aa77fec1e469c687c",
+        //     name: "Chicken Nuggets",
+        //     image: food_29,
+        //     price: 250,
+        //     description: "Golden, crispy, and tender—these chicken nuggets are pure perfection in every bite!",
+        //     category: "Snacks"
+        // }, {
+        //     _id: "6759837ea77fec1e469c687e",
+        //     name: "Chicken Lollipop",
+        //     image: food_30,
+        //     price: 250,
+        //     description: "Crispy, juicy, and full of flavor, chicken lollipops are a delightful bite-sized treat!",
+        //     category: "Snacks"
+        // }, {
+        //     _id: "675983c2a77fec1e469c6880",
+        //     name: "Tomato Basil Soup",
+        //     image: food_31,
+        //     price: 150,
+        //     description: "Rich, creamy, and bursting with fresh flavors, tomato basil soup is a comforting bowl of warmth!",
+        //     category: "Soups"
+        // }, 
     ]
 
 

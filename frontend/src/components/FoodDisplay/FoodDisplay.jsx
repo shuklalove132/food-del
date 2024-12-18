@@ -1,80 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import FoodItem from '../FoodItem/FoodItem';
 import './FoodDisplay.css';
-import axios from 'axios';
-import Spinner from '../Spinner'; // A spinner component for loading animation
+import { food_list } from '../../assets/assets'; // Import the static food_list
 
 const FoodDisplay = ({ category }) => {
-  const [food_list, setFoodList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [filteredFoodList, setFilteredFoodList] = useState([]);
 
-    useEffect(() => {
-        // Fetch food_list from the backend
-        setIsLoading(true); 
-        axios.get("https://ilcibo-backend.onrender.com/api/food/list")
-          .then((response) => {
-            setFoodList(response.data.data);
-            setIsLoading(false); // Stop loading
-          })
-          .catch((error) => {
-            console.error("There was an error fetching the list!", error);
-            setIsLoading(false); // Stop loading
-          });
-      }, []);
-    
-
-
+  useEffect(() => {
     // Filter food items based on the selected category
-    const filteredFoodList = category === "All" 
-        ? food_list 
-        : food_list.filter(item => item.category?.toLowerCase() === category.toLowerCase());
+    const filtered = category === "All"
+      ? food_list
+      : food_list.filter(item => item.category?.toLowerCase() === category.toLowerCase());
 
-    useEffect(() => {
-        console.log("Current category in FoodDisplay:", category);
-        console.log("All categories in food_list:", food_list.map(item => item.category));
-        console.log("Filtered food list:", filteredFoodList);
-    }, [category, filteredFoodList]);
+    setFilteredFoodList(filtered);
+  }, [category]);
 
-    return (
-        <div className="food-display">
-<<<<<<< HEAD
-            <div className="food-display-list">
-                {filteredFoodList.length > 0 ? (
-                    filteredFoodList.map((item) => (
-                        <FoodItem
-                            key={item._id}
-                            id={item._id}
-                            image={item.image}
-                            name={item.name}
-                            price={item.price}
-                            description={item.description}
-                        />
-                    ))
-                ) : (
-                    <p>Loading...</p>
-                )}
-            </div>
-        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-=======
-        <div className="food-display-list">
-          {isLoading ? (
-            <Spinner /> // Display spinner while loading
-          ) : (
-            filteredFoodList.map((item) => (
-              <FoodItem
-                key={item._id}
-                id={item._id}
-                image={item.image}
-                name={item.name}
-                price={item.price}
-                description={item.description}
-              />
-            ))
-          )}
-        </div>
+  return (
+    <div className="food-display">
+      <div className="food-display-list">
+        {filteredFoodList.length > 0 ? (
+          filteredFoodList.map((item) => (
+            <FoodItem
+              key={item._id}
+              id={item._id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+            />
+          ))
+        ) : (
+          <p>No items available in this category.</p>
+        )}
       </div>
->>>>>>> 7400becb029848b5fa0a5e9b49d3a780180b894f
-    );
+    </div>
+  );
 };
 
 export default FoodDisplay;
