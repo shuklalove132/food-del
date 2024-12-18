@@ -34,6 +34,15 @@ import food_21 from '/images/dylansManaliCookie.jfif'
 import food_22 from '/images/mangoCustard.jfif'
 import food_23 from '/images/chickenGarlicBread.jfif'
 import food_24 from '/images/hotChickBread.jfif'
+import food_25 from '/images/pestoChickBread.jfif'
+import food_26 from '/images/pepperoniBread.jfif'
+import food_27 from '/images/tandooriChicken.jfif'
+import food_28 from '/images/pesto.jfif'
+import food_29 from '/images/chickenNuggets.jpg'
+import food_30 from '/images/chickenLollipop.jpg'
+import food_31 from '/images/tomatobasilSoup.jpg'
+
+
 
 
 
