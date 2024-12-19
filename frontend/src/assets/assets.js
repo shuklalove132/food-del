@@ -170,7 +170,7 @@ export const menu_list = [
             _id: "67301a1f29cdb9ed538a6b70",
             name: "Garden Fresh",
             image: food_6,
-            price: 450,
+            price: 500,
             description: "San Marzano tomato sauce, Buffalo mozzarella cheese, onions, capsicum, olives, jalapeño, red paprika, sweet corn, mushrooms (dipped in sauce), basil",
             category: "pizza"
         }, {
